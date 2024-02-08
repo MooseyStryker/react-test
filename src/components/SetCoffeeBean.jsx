@@ -1,9 +1,16 @@
+import { CoffeeContext } from "../context/CoffeeContext";
+import { useContext } from "react";
+
 const SetCoffeeBean = ({ coffeeBeans }) => {
+  console.log("🚀 ~ SetCoffeeBean ~ coffeeBeans:", coffeeBeans)
+  const { setCoffeeBeanId, coffeeBean} = useContext(CoffeeContext)
+
   return (
     <div className="set-coffee-bean">
       <h2>Select a Coffee Bean</h2>
       <select
         name="coffee-bean"
+        onChange={(e) => setCoffeeBeanId(e.target.value)}
       >
         {coffeeBeans.map(bean => (
           <option
